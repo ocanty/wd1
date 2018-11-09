@@ -1,0 +1,192 @@
+
+
+header h1
+{
+    display: inline-block;
+    
+    font-size: 3em;
+    text-align: center;
+    color: white;
+    margin: 3em 0 0 0;
+
+    text-shadow: 2px 2px rgba(0,0,0,0.55);
+
+    padding: 0.5em;
+    border: 0.05em solid rgba(0,0,0,0.15);
+
+    background: rgba(0,0,0,0.45);
+
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.44);
+}
+
+/* do not display the nav burger on regular screens */
+header span {
+    display: none;
+}
+
+nav ul
+{
+    text-align: center;
+    padding: 0;
+    margin: 3em 0 2em 0;
+
+
+}
+
+nav ul li
+{
+    display: inline-block;
+    background-color: #222;
+    color: white;
+    box-shadow: 0 0 0.1em rgba(0,0,0,1);
+    padding: 0.5em;
+    margin: 0 0.25em;
+
+    position: relative;
+    top: 0;
+    transition: top 0.5s;
+}
+
+/* only do nav effects on regular screens */
+@media only screen and (min-width: 640px)
+{
+
+    /* move up on hover */
+    nav ul li:hover
+    {
+        position: relative;
+        top: -5px;
+        transition: top 0.5s;
+
+        cursor: pointer;
+    }
+
+    /* underline prep */
+    nav ul li::after
+    {
+        display: block;
+
+        background-color: white;
+        content: '';
+        
+        height: 0.05em;
+        width: 0%;
+    }
+
+    /* show underline on hover */
+    nav ul li:hover::after
+    {
+        width: 100%;
+        transition: width 0.5s;
+    }
+}
+
+@media only screen and (max-width: 640px)
+{
+    :root {
+        --navbar-height: 2em;
+    }
+
+    header h1 {
+        /* floating navbar at top of page */
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+
+        width: 100vw;
+        height: var(--navbar-height);
+
+        /* draw over everything */
+        z-index: 100;
+
+        /* reduce transparency, mobile phone screens tend to have better blacks */
+        background-color: rgba(0,0,0,0.44);
+        
+
+        font-size: 2em;
+
+        /* vertical align */
+        line-height: 2em;
+
+        
+        
+    }
+
+    header span {
+        display: inline-block;
+        float: left;
+
+        position: absolute;
+        left: 0.5em;
+
+        cursor: pointer;
+    }
+
+    header {
+        /* because the h1 is fixed, the old nav is display: none, these no longer push the page down,
+            we need to create space so our mobile nav bar does not block the header image */
+        padding-top: 14em;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        z-index: 95;
+        width: 0;
+        height: 100vh;
+
+        transition: width 1s;
+        background-color: #222;
+    }
+
+    nav[extended] {
+        width: 100vw;
+        padding: 4em 0 0 0;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    nav ul {
+        margin: 0;
+        height: 0;
+    }
+
+    nav li {
+        opacity: 0;
+        transition: opacity 1s;
+        
+        font-size: 1.2em;
+    }
+
+
+    nav[extended] ul {
+        display: block; /* make visible (previously display: none */
+
+        position: relative;
+        z-index: 98;
+
+        height: auto;
+    }
+
+    nav[extended] li {
+        display: block;
+
+
+        padding: 1em 0;
+        margin: 0;
+        box-shadow: 0;
+
+        opacity: 1;
+        transition: opacity 1s;
+    }
+
+    nav[extended]:hover {
+
+    }
+
+}

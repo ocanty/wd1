@@ -1,0 +1,121 @@
+@viewport  {width:device-width}
+@import url("fonts.css");
+
+body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:    "top"
+                            "middle"
+                            "bottom";
+
+    font-size: 16px; /* for em */
+
+    /* kill horizontal scrollbars */
+    overflow-x: hidden;
+    
+    /* 960%3, 960%2 == 0, we can mix 2 and 3 column layouts with pixel precision */
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* a pseudo-element that fades after the page opens, bringing everything into view */
+html::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    height: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: white;
+    z-index: 99999;
+
+    animation: fade-out 1s;
+    /* keep opacity after anim finishes */
+    animation-fill-mode: forwards;
+
+    /* pass thru cursor events to the page */
+    pointer-events: none; 
+}
+
+@media only screen and (max-width: 960px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* grid setup */
+header {
+    grid-area: top;
+}
+
+main {
+    grid-area: middle;
+}
+
+footer {
+    grid-area: bottom;
+}
+
+
+/* utilities */
+
+/* pads an element to the edges of the browser, while keeping margins intact */
+.full-width {
+    margin-left: -100vw;
+    margin-right: -100vw;
+    padding-left: 100vw;
+    padding-right: 100vw;
+}
+
+
+/* globals headings/text style */
+h1 {
+    font-size: 1.4em;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 200;
+
+    margin: 0;
+}
+
+h2, p, b, strong, li, span, li
+{
+    font-family: "Open Sans Condensed", sans-serif;
+    
+}
+
+h2 {
+    font-size: 0.7em;
+    font-weight: 300;
+}
+
+p {
+
+    margin: 0.25em 1em 0.25em 0.05em;
+    font-size: 1.1em;
+}
+
+b, strong
+{
+    font-size: 0.96em;
+    /* text-decoration: underline black dashed; */
+}
+
+
+.rounded
+{
+    border-radius: 50% 50%;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.25);
+}
