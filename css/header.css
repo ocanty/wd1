@@ -29,6 +29,8 @@ header::before {
     background-position: center 12.5%;
 
     transform: perspective(1500px) translateY(var(--p1-yscale));
+
+    transition: 1s;
 }
 
 @media only screen and (max-width: 960px)

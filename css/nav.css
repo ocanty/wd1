@@ -47,6 +47,12 @@ nav ul li
     transition: top 0.5s;
 }
 
+nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+
 /* only do nav effects on regular screens */
 @media only screen and (min-width: 640px)
 {
@@ -72,7 +78,6 @@ nav ul li
         height: 0.05em;
         width: 0%;
     }
-
     /* show underline on hover */
     nav ul li:hover::after
     {
@@ -157,6 +162,8 @@ nav ul li
     }
 
     nav li {
+
+        
         opacity: 0;
         transition: opacity 1s;
         
@@ -175,18 +182,15 @@ nav ul li
 
     nav[extended] li {
         display: block;
-
-
         padding: 1em 0;
         margin: 0;
         box-shadow: 0;
 
         opacity: 1;
-        transition: opacity 1s;
     }
 
     nav[extended]:hover {
-
+        cursor: pointer;
     }
 
 }

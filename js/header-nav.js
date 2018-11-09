@@ -1,6 +1,6 @@
 
 window.onload = () => {
-    document.querySelector('header').classList.add('parallax1')
+    //document.querySelector('header').classList.add('parallax1')
 
     document.documentElement.style.setProperty("--p1-yscale","0px")
 
