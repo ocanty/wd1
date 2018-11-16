@@ -1,152 +1,181 @@
+@import url('global.css');
+@import url('header.css');
+@import url('nav.css');
+@import url('footer.css');
 
-@import url("global.css");
-@import url("header.css");
-@import url("nav.css");
-
-
-
-
-figcaption
-{
-    font-family: "Open Sans", sans-serif;
-
-    text-align: center;
-    font-style: italic;
-    font-size: 0.8em;
-
-}
-
-header
-{
-    text-align: center;
-}
-
-
-main {
-    box-shadow: 0px 0px 1.5em rgba(0,0,0,0.35);
-    background-color: white;
-}
-
-main > section
-{
-    display: grid;
-    grid-template-columns: 66% 33%;
-    padding: 1.2em 1em;
-}
-
-@media only screen and (max-width: 960px)
-{
-    main > section
-    {
-        grid-template-columns: 100%;
-        grid-template-rows: 50% 50%;
-        padding: 1em;
-    }
-}
-
-main figure
-{
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
-}
-
-main figure img
-{
-    width: 100vw;
-    max-width: 100%;
-}
-
-#map, #map img, #map figcaption
-{
-    opacity: 0;
-
-    animation-fill-mode: forwards;
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-delay: 4s;
-
-    border-radius: 50% 50%;
-
-    /* keep above train */
-    position: relative;
-    z-index: 3;
-}
-
-@media only screen and (max-width: 960px)
-{
-    #map
-    {
-        border-radius: none; 
-    }
-}
-
-#map img
-{
-    transform: scale(2.2);
-    transform-origin: top center;
-    overflow: hidden;
-}
-
-#map img + figcaption
-{
-    display: block;
-    background-color: rgba(33,33,33,0.75);
-    padding: 0.2em;
+#density {
+    padding-top: 2em;
     color: white;
 
-    position: relative;
-    z-index: 2;
-    margin-bottom: 2em;
-    text-shadow: 1px 1px 2px rgba(44,44,44,0.85);
-    font-weight: 500;
-
-    position: relative;
-    z-index: 2;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), 
+        linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.50)),
+        url("../img/jumbotron.jpg");
+    background-color: white;
+    background-blend-mode: darken,  overlay, normal;
+    background-position: center top;
+    background-size: auto 95%;
+    background-repeat: no-repeat;
 }
 
-@keyframes pass-left-right {
-    from { left: -250vw; }
-    to { left: 250vw; }
+#density ul {
+    background-color: white;
+    color: black;
+    text-shadow: none;
+
+    padding: 1em 0;
+    font-size: 0.5em;
+    box-shadow: 0 0 2em var(--transparent);
+
+    text-align: center;
+    font-size: 0.8em;
 }
 
-#train
-{
-    display: block;
-    opacity: 0.8;
+#density img {
+    display: none;
+}
 
-    position: relative;
-    z-index: 1;
-    animation: pass-left-right 15s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
+
+#driverless-video {
+    width: 100%;
+}
+
+#best {
+    height: 8em;
+}
+
+
+#beaut {
+    grid-template-columns: 100%;
+    height: 12em;
+    max-height: 12em;
     
-    
-    padding: 0;
+    overflow: hidden;
 
-    height: 7em;
-    margin: -7em 0 0 0;
+
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), 
+        linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.50)),
+        url("../img/artdemetier.jpg");
+    background-color: white;
+    background-blend-mode: darken,  overlay, normal;
+    background-position: center center;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/* disabled train on mobile */
-@media only screen and (max-width: 960px)
-{
-    #train {
-        visibility: hidden;
-        animation: none; /* :( */
+#beaut h2 {
+    margin-top: 3em;
+    padding: 0.25em;
+}
+
+#beaut i {
+    font-size: 0.8em;
+}
+
+@media only screen and (min-width: 768px) {
+    .jumbotron h2 {
+        padding: 0;
+    }
+
+    #density {
+        padding: 2em;
+
+        background-size: 100%;
+        background-position: center 22%;
+
+        text-align: left;
+        
+        grid-template-columns: 55% 45%;
+        padding: 4em 2em 2em 2em;
+    }
+
+    #density ul {
+        background: none;
+        box-shadow: none;
+
+        color: white;
+        font-size: 0.60em;
+        
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #density p, #density h1, #density li {
+        text-shadow: 2px 2px 2px black;
+        color: white;
+        position: relative;
+        z-index: 10;
+    }
+
+
+    @keyframes ltr {
+        from { left: -250em; }
+        to { left: 250em; }
+    }
+
+    #density img {
+        display: block;
+        position: relative;
+        z-index: 5;
+        height: 6em;
+        margin-bottom: -12em;
+        top: -2em;
+
+        animation-name: ltr;
+        animation-duration: 12s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+
+        filter: grayscale(100%) contrast(50%) brightness(10%);
+
+        opacity: 0.7;
+    
+    }
+
+    #driverless {
+        grid-template-columns: 45% 55%;
+        background: var(--grey);
+        box-shadow: inset 0 0 2em rgba(0,0,0,0.15);
+        overflow: hidden;
+    }
+
+    #driverless video {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+
+        object-fit: cover;
+
+        position: relative;
+        z-index: 2;
+        
+        clip-path: ellipse(75% 125% at 25% 50%);
+    }
+
+    #driverless section {
+        text-align: right;
+        padding: 2em;
+        position: relative;
+        
+        z-index: 3;
+    }
+
+    #best {
+        grid-template-columns: 100%;
+        max-height: 4em;
+        box-shadow: inset 0 0 var(--transparent);
+        padding: 0;
+    }
+
+    #best img {
+        object-fit: cover;
+        width: 100%;
+        min-width: 100%;
     }
 }
-
-.fade-list li
-{
-    opacity: 0;
-    animation-name: fade-in;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-
-.fade-list li:nth-child(0) {  animation-delay: 4s; }
-.fade-list li:nth-child(1) {  animation-delay: 5s; }
-.fade-list li:nth-child(2) {  animation-delay: 6s; }
-.fade-list li:nth-child(3) {  animation-delay: 7s; }
-.fade-list li:nth-child(4) {  animation-delay: 8s; }

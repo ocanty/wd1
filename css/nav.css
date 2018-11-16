@@ -1,196 +1,165 @@
 
+header {
+    padding: 1em 0em;
 
-header h1
-{
-    display: inline-block;
-    
-    font-size: 3em;
-    text-align: center;
-    color: white;
-    margin: 3em 0 0 0;
-
-    text-shadow: 2px 2px rgba(0,0,0,0.55);
-
-    padding: 0.5em;
-    border: 0.05em solid rgba(0,0,0,0.15);
-
-    background: rgba(0,0,0,0.45);
-
-    box-shadow: 0 0 0.5em rgba(0,0,0,0.44);
+    position: fixed;
+    z-index: 99999;
 }
 
-/* do not display the nav burger on regular screens */
 header span {
-    display: none;
-}
-
-nav ul
-{
-    text-align: center;
-    padding: 0;
-    margin: 3em 0 2em 0;
-
-
-}
-
-nav ul li
-{
     display: inline-block;
-    background-color: #222;
-    color: white;
-    box-shadow: 0 0 0.1em rgba(0,0,0,1);
-    padding: 0.5em;
-    margin: 0 0.25em;
 
-    position: relative;
+    position: fixed;
+    top: 0.5em;
+    left: 0.5em;
+    cursor: pointer;
+    color: white;
+    filter: contrast(100%);
+
+    font-size: 1.25em;
+}
+
+header nav {
+    position: fixed;
     top: 0;
-    transition: top 0.5s;
+    left: 0;
+
+    width: 100vw;
+    height: 0;
+    transition: height 1s;
+    z-index: 1;
+
+    background-color: rgba(0,0,0,0.85);
+
+    overflow: hidden;
 }
 
-nav li a {
+
+header[extended] h1 span::before {
+
+    content: "❌"; /* &x#274C; <-- html entities not supported in content :( */
     color: white;
-    text-decoration: none;
+    margin-left: 0.1em; /* font irregularity */
+}
+
+header[extended] h1 span {
+    color: rgba(0,0,0,0); /* opacity: 0 will hide before element */
+    text-shadow: none;
+}
+
+header nav[extended] {
+    height: 100vh;
+}
+
+header nav ul {
+    position: relative;
+    margin-top: 6em;
+    list-style: none;
+    
+    text-align: center;
+
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+header nav li {
+    width: 100vw;
+    color: white;
+    padding: 2vh 0;
+    margin: 0;
+
+    font-size: 2em;
+    opacity: 1;
+    
+    cursor: pointer;
+}
+
+header nav a {
+    color: white;
 }
 
 
-/* only do nav effects on regular screens */
-@media only screen and (min-width: 640px)
-{
+header nav li:nth-child(even) {
+    background-color: rgba(0,0,0,0.25);
+}
 
-    /* move up on hover */
-    nav ul li:hover
-    {
-        position: relative;
-        top: -5px;
-        transition: top 0.5s;
+header nav[extended] li:hover {
+    background-color: #222;
+} 
 
-        cursor: pointer;
+@media only screen and (min-width: 768px) {
+    header {
+        display: grid;
+        grid-template-rows: fit-content(100%);
+        grid-template-columns: 55% 45%;
+    }
+
+    header span {
+        display: none;
+    }
+
+    header h1 {
+        text-align: left;
+        padding: 0.1em 0 0.1em 3em;
+    }
+
+    header nav {
+        display: inline-block;
+        height: 4em;
+        width: 100%;
+
+        position: static;
+        background: none;
+        
+    }
+
+    header nav ul {
+        margin: 0;
+        margin-right: 8em;
+
+        background: none;
+        text-align: right;
+        overflow: hidden;
+
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+    }
+
+    header nav li {
+        display: block;
+        width: 100%;
+        line-height: 3em;
+        height: 3em;
+        padding: 0;
+        margin: 0 auto;
+        background: none;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    header nav li:nth-child(even) {
+        background: none;
     }
 
     /* underline prep */
-    nav ul li::after
+    header nav li::after
     {
         display: block;
-
+        position: relative;
+        top: -1.1em;
         background-color: white;
         content: '';
-        
+        margin: 0 auto;
+
+        transition: width 0.5s;
         height: 0.05em;
         width: 0%;
     }
     /* show underline on hover */
-    nav ul li:hover::after
+    header nav li:hover::after
     {
-        width: 100%;
-        transition: width 0.5s;
+        width: 65%;
     }
-}
-
-@media only screen and (max-width: 640px)
-{
-    :root {
-        --navbar-height: 2em;
-    }
-
-    header h1 {
-        /* floating navbar at top of page */
-        position: fixed;
-        top: 0;
-        left: 0;
-        margin: 0;
-        padding: 0;
-
-        width: 100vw;
-        height: var(--navbar-height);
-
-        /* draw over everything */
-        z-index: 100;
-
-        /* reduce transparency, mobile phone screens tend to have better blacks */
-        background-color: rgba(0,0,0,0.44);
-        
-
-        font-size: 2em;
-
-        /* vertical align */
-        line-height: 2em;
-
-        
-        
-    }
-
-    header span {
-        display: inline-block;
-        float: left;
-
-        position: absolute;
-        left: 0.5em;
-
-        cursor: pointer;
-    }
-
-    header {
-        /* because the h1 is fixed, the old nav is display: none, these no longer push the page down,
-            we need to create space so our mobile nav bar does not block the header image */
-        padding-top: 14em;
-    }
-
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        z-index: 95;
-        width: 0;
-        height: 100vh;
-
-        transition: width 1s;
-        background-color: #222;
-    }
-
-    nav[extended] {
-        width: 100vw;
-        padding: 4em 0 0 0;
-
-        overflow-x: hidden;
-        overflow-y: scroll;
-    }
-
-    nav ul {
-        margin: 0;
-        height: 0;
-    }
-
-    nav li {
-
-        
-        opacity: 0;
-        transition: opacity 1s;
-        
-        font-size: 1.2em;
-    }
-
-
-    nav[extended] ul {
-        display: block; /* make visible (previously display: none */
-
-        position: relative;
-        z-index: 98;
-
-        height: auto;
-    }
-
-    nav[extended] li {
-        display: block;
-        padding: 1em 0;
-        margin: 0;
-        box-shadow: 0;
-
-        opacity: 1;
-    }
-
-    nav[extended]:hover {
-        cursor: pointer;
-    }
-
 }

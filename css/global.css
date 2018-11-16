@@ -1,122 +1,158 @@
-@viewport  {width:device-width}
-@import url("fonts.css");
 
-body {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto;
-    grid-template-areas:    "top"
-                            "middle"
-                            "bottom";
+@viewport { width: device-width; }
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css');
+@import url('fonts.css');
 
-    font-size: 16px; /* for em */
+/* color palette */
+:root {
+    --transparent: rgba(0,0,0,0.33);
+    --grey: #222;
 
-    /* kill horizontal scrollbars */
-    overflow-x: hidden;
-    
-    /* 960%3, 960%2 == 0, we can mix 2 and 3 column layouts with pixel precision */
-    max-width: 960px;
-    margin: 0 auto;
+    --break: 768px;
 }
+
+/* em + disable horiz scroll */
+body {
+    font-size: 13px;
+    overflow-x: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 11px;
+    }
+}
+
+/* margin resets */
+body, h1,h2,h3,ul,figcaption,img,figure {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+h1,h2,h3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+p, li, span {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-size: 1.1em;
+}
+
+strong, b {
+    font-weight: 400;
+    font-size: 1.15em;
+}
+
+/* @media only screen and (min-width: 640px) {
+    body {
+        font-size: 16px;
+    }
+} */
+
 
 @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes fade-out {
-    from { opacity: 1; }
-    to { opacity: 0; }
+/* grid */
+body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:  'header' 'main' 'footer';
+
 }
 
-/* a pseudo-element that fades after the page opens, bringing everything into view */
-html::after {
-    content: '';
-
-    position: absolute;
-    top: 0;
-    height: 0;
-    width: 100vw;
-    height: 100vh;
-
-    background-color: white;
-    z-index: 99999;
-
-    animation: fade-out 1s;
-    /* keep opacity after anim finishes */
-    animation-fill-mode: forwards;
-
-    /* pass thru cursor events to the page */
-    pointer-events: none; 
-}
-
-@media only screen and (max-width: 960px) {
-    body {
-        font-size: 14px;
-    }
-}
-
-/* grid setup */
 header {
-    grid-area: top;
+    grid-area: header;
 }
 
 main {
-    grid-area: middle;
+    grid-area: main;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
 }
 
 footer {
-    grid-area: bottom;
+    grid-area: footer;
 }
 
-
-/* utilities */
-
-/* pads an element to the edges of the browser, while keeping margins intact */
-.full-width {
-    margin-left: -100vw;
-    margin-right: -100vw;
-    padding-left: 100vw;
-    padding-right: 100vw;
+.hidden { /* hide element, used to add required h1/h2s to section/articles to pass validation */
+    grid-column: 999; /* will never interrupt grid flow */
+    position: absolute;
+    top: 0;
+    visibility: hidden;
 }
 
-
-/* globals headings/text style */
-h1 {
-    font-size: 1.4em;
-    font-family: "Open Sans", sans-serif;
+/* jumbotron styling */
+.jumbotron {
+    font-size: 3em;
     font-weight: 200;
+    background-position: center center;
+    background-color: #222;
+    text-align: center;
 
-    margin: 0;
+    text-shadow: 0.05em 0.05em 2px #222;
+
+    display: grid;
+    grid-template-rows: fit-content(100%);
+    grid-template-columns: 100%;
+
+    color: white;
+
 }
 
-h2, p, b, strong, li, span, li
+.jumbotron h2 {
+    padding: 0.25em 0;
+}
+
+@keyframes rtl-o {
+    from{ left: 150vw; }
+    to{ left: 0vw;}
+}
+
+@keyframes ltr-o {
+    from{ left: -150vw; }
+    to{ left: 0vw;}
+}
+
+@media only screen and (min-width: 768px) {
+    .jumbotron {
+
+        grid-template-rows: fit-content(100%);
+        grid-template-columns: 50% 50%;
+        padding: 0;
+   
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+
+}
+
+.jumbotron p {
+    font-size: 0.5em;
+    margin: 1em 0.5em;
+}
+
+/* fade list */
+.fade-list li
 {
-    font-family: "Open Sans Condensed", sans-serif;
-    
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
 
-
-h2 {
-    font-size: 0.7em;
-    font-weight: 300;
-}
-
-p {
-
-    margin: 0.25em 1em 0.25em 0.05em;
-    font-size: 1.1em;
-}
-
-b, strong
-{
-    font-size: 0.96em;
-    /* text-decoration: underline black dashed; */
-}
-
-
-.rounded
-{
-    border-radius: 50% 50%;
-    box-shadow: 0 0 0.5em rgba(0,0,0,0.25);
-}
+.fade-list li:nth-child(0) {  animation-delay: 1s; }
+.fade-list li:nth-child(1) {  animation-delay: 2s; }
+.fade-list li:nth-child(2) {  animation-delay: 3s; }
+.fade-list li:nth-child(3) {  animation-delay: 4s; }
+.fade-list li:nth-child(4) {  animation-delay: 5s; }

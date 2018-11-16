@@ -1,69 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Paris Métropolitain</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/index.css"/>
 
-        <script src="js/header-nav.js"></script>
+        <link rel="stylesheet" href="css/index.css"/>
+        <link rel="favicon" href="/wd1/favicon.ico"/>
+        <script src="js/nav-extended-attr.js"></script>
     </head>
     <body>
-        <header class="full-width">
-            <h1><span>&#x2630;&#xFE0E;</span>Paris Métro</h1>
+        <!--[if IE]>
+            <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; font-size: 16px; padding: 32px; text-align: center">
+                <h1>
+                    Please upgrade to a browser that supports CSS Grid, Flexbox and other modern features, you peasant.
+                </h1>
+            </div>
+        <![endif]-->
+
+        <header>
+            <h1><span>&#x2630;&#xFE0E;</span>&#x24C2; Paris Métro</h1>
             <nav>
                 <ul>
-                    <li><a href='#'>Home</a></li>
-                    <li>History</li>
-                    <li>Trains</li>
-
-                    <li>
-                        Lines
-                    </li>
-
-                    <li>
-                        Oddities
-                    </li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Trains</a></li>
+                    <li><a href="#">Lines</a></li>
+                    <li><a href="#">Oddities</a></li>
                 </ul>
             </nav>
         </header>
 
-        <main class="full-width">
-            <section>
+        <main>
+            <section class="jumbotron" id="density">
+                <h2 class="hidden">The Metro</h2>
                 <section>
-                    <h1>Europe's Densest Subway</h1>
+                    <h2>Europe's Densest Subway</h2>
                     <p>
                         With a system length of <strong>214km</strong>, <strong>302 stations</strong> and
                         an <strong>average distance of 600m between stations</strong>, the Paris Metro takes
                         the crown in being one of the densest subway systems in the world.
                     </p>
                     <p>
-                        Such a design presents interesting challenges:
+                        Such a design presents interesting challenges.
                     </p>
+                </section>
+                <section>
+                    <h2 class="hidden">The Facts</h2>
                     <ul class="fade-list">
                         <li>16 lines</li>
                         <li>4.16 million daily riders</li>
                         <li>1.52 billion yearly riders</li>
-                        <li>Open 20 hours a day</li>
+                        <li>20 hours a day</li>
                     </ul>
                 </section>
-                <figure id="map">
-                    <img class="map-view" src="img/map.png" alt="Map of Paris Metro, showing city centre stations"/>
-                    <figcaption>Map of the City Centre</figcaption>
+                <img src="img/mp.svg" alt="The MP77, a rubber-tyred metro train"/>
+            </section>
+            <section class="jumbotron" id="best">
+                <figure>
+                    <img src="img/map2.png" alt="Map of the Metro System"/>
                 </figure>
-                <img id="train" src="img/mp73.svg" alt="MP73, a rubber tyred metro train"/>
             </section>
 
-            <section style="height: 50vh">
+            <section class="jumbotron" id="driverless">
+                <h2 class="hidden">Automated Service</h2>
+                <video id="driverless-video" autoplay muted loop>
+                    <source src="mp4/mp05.mp4" type="video/mp4"/>
+                </video>
                 <section>
-                    <h1>Automatic Service</h1>
+                    <h2>Driverless Trains</h2>
+                    <p>
+                        Automated trains can be found on lines <strong>1</strong> &amp; <strong>14</strong>. 
+                        Trains can be deployed at will from a command center to cope with peak demand.
+                        The distance between consecutive trains can become smaller and smaller as
+                        coordination is not required between drivers
+                    </p>
                 </section>
             </section>
+            <section class="jumbotron" id="beaut">
+                <h2 class="hidden">Architecture</h2>
+                <section>
+                    <h2>Beautiful Stations</h2>
+                    <i lang="fr">Arts Et Metiers</i>
+                </section>
+            </section>
+
         </main>
 
         <footer>
-
+            <section>
+                <h2>Acknowledgements</h2>
+                <ul>
+                    <li>RATP - Metro Map, Arts Et Metiers</li>
+                    <li>@fred_france_subway on Instagram - Video</li>
+                    <li>Flickr CC-BY-SA 3.0 - Painting</li>
+                </ul>
+            </section>
+            <section id="logo-darken">
+                <h2>&#x24C2;</h2>
+                <small>&copy; CC-BY-SA 3.0</small>
+            </section>
+            <section>
+                <h2>More Info</h2>
+                <ul>
+                <li><a href="http://www.ratp.fr">RATP</a></li>
+                <li><a href="http://metromap.fr/">Metro Map</a></li>
+                <li><a href="https://parisbytrain.com/paris-metro/">Paris By Train</a></li>
+                </ul>
+            </section>
         </footer>
     </body>
 </html>

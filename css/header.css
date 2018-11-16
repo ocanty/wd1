@@ -1,50 +1,32 @@
 
-:root {
-    --p1-yscale: 0px;
-}
+header {
+    background-color: var(--transparent);
+    box-shadow: 0 0 0.5em var(--transparent);
+    width: 100vw;
 
-header
-{
-
-}
-
-/* the header scroll image is implemented as a pseudo element */
-/* this is moved at a ratio of the amount the user has scrolled down in js found in js/header.js */
-header::before {
-    display: block;
-    content: "";
-    position: absolute;
+    /* header is floated on mobile */
+    position: fixed;
     top: 0;
     left: 0;
 
-    /* make our before same size as header */
-    width: 100%;
-    height: 30em;
-    
-
-    z-index: -1;
-    background-image: url("../img/jumbotron.jpg");
-    background-repeat: no-repeat;
-    background-size:     100%;
-    background-position: center 12.5%;
-
-    transform: perspective(1500px) translateY(var(--p1-yscale));
-
-    transition: 1s;
+    z-index: 100; /* draw above content */
 }
 
-@media only screen and (max-width: 960px)
-{
-    /* turn off parallax on mobile, disorients users */
-    header::before {
-        display: none;
-    }
+header h1 {
+    font-size: 2em;
+    text-align: center;
+    color: white;
 
-    header /* just use regular placement */
-    {
-        background-image: url("../img/jumbotron.jpg");
-        background-repeat: no-repeat;
-        background-size:     85%;
-        background-position: center 12.5%;
-    }
+    text-shadow: 2px 2px rgba(0,0,0,0.55);
+
+    position: relative;
+    z-index: inherit;
+    line-height: 2em;
+}
+
+
+header h1::first-letter {
+    color: #0055c8;
+    font-size: 120%;
+    margin-right: 0.125em;
 }
