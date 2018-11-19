@@ -1,0 +1,193 @@
+@import url('global.css');
+@import url('header.css');
+@import url('nav.css');
+@import url('footer.css');
+
+:root {
+    --p1-yscale: 0px;
+    --percent-scrolled: 0%;
+}
+
+/* the scroll image is implemented as a pseudo element */
+/* this is moved at a ratio of the amount the user has scrolled down in js found in js/onload.js */
+
+
+main {
+    overflow: hidden;
+    background: #111;
+}
+
+#timeline-head {
+    text-align: center;
+
+    background-color: rgba(0,0,0,0);
+    padding: 2em 0.5em;
+    padding-bottom: 0.25em;
+}
+
+#timeline {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 0 black;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* vertical blue line */
+#timeline::before {
+    content: '';
+
+    display: block;
+    position: absolute;
+    left: calc(50% - 0.75em);
+    width: 1.5em;
+    height: 100%;
+    background-color: #3498db;
+    margin: 0 auto;
+
+    border-radius: 1.5em;
+
+    z-index: 1;
+
+    box-shadow: 0 0 0.5em black;
+}
+
+#timeline ul h3::after {
+    display: block;
+    content: '';
+   
+    width: 1em;
+    height: 1em;
+    margin: 0 auto;
+    font-size: 0.5em;
+    padding: 0.25em;
+    position: relative;
+    background-color: #3498db;
+    border-radius: 50% 50%;
+
+    text-shadow: 0 0 0.5em var(--transparent);
+}
+
+/* draw all element above vertical line */
+#timeline ul li {
+    position: relative;
+    z-index: 2;
+}
+
+figure {
+    margin: 0.5em;
+    overflow: hidden;
+    border-radius: 0.25em;
+}
+
+figure img {
+    overflow: hidden;
+}
+
+#timeline ul h3 {
+    font-size: 3em;
+}
+
+figure img {
+    position: relative;
+    margin: 0;
+    border-radius: 1em;
+    height: 8em;
+    box-shadow: 0 0 0.5em black;
+}
+
+#timeline p {
+    margin: 2em auto;
+    padding: 1em;
+    background-color: var(--transparent);
+}
+
+@media only screen and (min-width: 768px)
+{ 
+    main {
+        background-color: transparent;
+        overflow: hidden;
+    }
+
+    html {
+        background-color: #111;
+    }
+
+    main::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+    
+        width: 100%;
+        height: 110vh;
+        
+        
+
+        z-index: -1;
+        background-image: url("../img/historybg.jpg");
+        background-color: #111;
+        background-repeat: no-repeat;
+        background-size:   cover;
+        transform: translateY(var(--p1-yscale));
+        
+        filter: saturate(calc(var(--percent-scrolled) * 5));
+
+        /* to fix blurry image, since it's lores */
+        /* credit: https://stackoverflow.com/a/51863875 */
+        image-rendering: crisp-edges;
+        image-rendering: -moz-crisp-edges;          /* Firefox */
+        image-rendering: -o-crisp-edges;            /* Opera */
+        image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+        -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
+        overflow: hidden;
+    }
+    #timeline-head {
+        text-align: left;
+        padding: 4em 2em 1em 2em;
+    }
+
+    #timeline {
+        margin-bottom: 4em;
+    }
+
+    #timeline li ul li:nth-child(odd) {
+        position: relative;
+        margin-bottom: -6em;
+        border-radius: 0.25em;
+        
+        padding: 0.75em;
+        
+        top: -6em;
+        left: -30vw;
+    }
+
+    #timeline li ul li:nth-child(even) {
+        position: relative;
+        margin-bottom: -6em;
+        border-radius: 0.25em;
+        
+        padding: 0.75em;
+
+        top: -6em;
+        left: 30vw;
+    }
+
+    #timeline p {
+        display: block;
+        max-width: 30vw;
+        border-radius: 0.25em;
+        font-weight: 500;
+    }
+
+    figcaption {
+        font-size: 0.8em;
+        font-weight: 400;
+    }
+
+
+}

@@ -43,7 +43,7 @@ header[extended] h1 span::before {
 }
 
 header[extended] h1 span {
-    color: rgba(0,0,0,0); /* opacity: 0 will hide before element */
+    color: rgba(0,0,0,0); /* workaround: opacity: 0 will hide the ::before element */
     text-shadow: none;
 }
 
@@ -124,7 +124,7 @@ header nav[extended] li:hover {
 
         display: grid;
         grid-template-rows: 100%;
-        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-columns: 25% 25% 25% 25%;
     }
 
     header nav li {
@@ -143,6 +143,10 @@ header nav[extended] li:hover {
         background: none;
     }
 
+    header nav li a {
+        text-decoration: none;
+    }
+
     /* underline prep */
     header nav li::after
     {
@@ -155,7 +159,9 @@ header nav[extended] li:hover {
 
         transition: width 0.5s;
         height: 0.05em;
-        width: 0%;
+        width: 40%;
+
+        pointer-events: none; /* stop them clicking on the line */
     }
     /* show underline on hover */
     header nav li:hover::after
