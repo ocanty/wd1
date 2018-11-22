@@ -40,10 +40,9 @@
     width: 100%;
 }
 
-#best {
+#map {
     height: 8em;
 }
-
 
 #beaut {
     grid-template-columns: 100%;
@@ -117,6 +116,10 @@
     @keyframes ltr {
         from { left: -250em; }
         to { left: 250em; }
+    }
+
+    #density figcaption {
+        visibility: hidden;
     }
 
     #density img {

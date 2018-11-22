@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" href="css/lines.css"/>
         <link rel="icon" href="favicon.ico"/>
+        <script src="js/onload.js"></script>
     </head>
     <body>
         <!--[if IE]>
@@ -43,10 +44,10 @@
                 <h2 class="hidden">The Lines</h2>
                 <table>
                     <tr>
-                        <th></th>
-                        <th>Termini</th>
-                        <th>Length</th>
-                        <th>Stations</th>
+                        <th scope="col"><p class="hidden">Line Number</p></th>
+                        <th scope="col">Termini</th>
+                        <th scope="col">Length</th>
+                        <th scope="col">Stations</th>
                     </tr>
                     <tr>
                         <td style="background-color: #FFBE00">1</td>
@@ -159,6 +160,7 @@
             <section id="logo-darken">
                 <h2>&#x24C2;</h2>
                 <small>&copy; MIT License unless otherwise acknowledged</small>
+                <a href="https://github.com/ocanty/wd1">source code</a>
             </section>
             <section>
                 <h2>More Info</h2>

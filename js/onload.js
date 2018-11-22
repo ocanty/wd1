@@ -36,7 +36,7 @@ let parallax = () => {
         var cur = parseInt(prop.slice(0,prop.length-2))
         var target = document.documentElement.scrollTop*0.97
         
-        var lerped = lerp(cur,target, 1) // smooth cur to target, prevent jitter
+        var lerped = target//lerp(cur,target, 1) // smooth cur to target, prevent jitter
     
         document.documentElement.style.setProperty(
             '--p1-yscale',

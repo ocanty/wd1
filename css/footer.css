@@ -42,6 +42,10 @@ footer h2 {
     color: #555;
 }
 
+#logo-darken a {
+    font-size: 0.8em;
+}
+
 footer ul li {
     display: block;
     padding: 0.25em;

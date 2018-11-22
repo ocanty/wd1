@@ -8,9 +8,25 @@
 :root {
     --transparent: rgba(0,0,0,0.33);
     --grey: #222;
-
-    --break: 768px;
 }
+
+/* lines */
+.line-1     { background-color: #FFBE00; }
+.line-2     { background-color: #0055C8; }
+.line-3     { background-color: #6e6e00; }
+.line-3bis  { background-color: #82c8e6; }
+.line-4     { background-color: #a0006e; }
+.line-5     { background-color: #ff5a00; }
+.line-6     { background-color: #82dc73; }
+.line-7     { background-color: #ff82b4; }
+.line-7bis  { background-color: #82dc73; }
+.line-8     { background-color: #d282be; }
+.line-9     { background-color: #d2d200; }
+.line-10    { background-color: #dc9600; }
+.line-11    { background-color: #6e491e; }
+.line-12    { background-color: #00643c; }
+.line-13    { background-color: #82c8e6; }
+.line-14    { background-color: #640082; }
 
 /* em + disable horiz scroll */
 body {
@@ -47,13 +63,10 @@ strong, b {
     font-size: 1.15em;
 }
 
-i {
+i, em {
+    /* italics in many of our fonts move the italicized text too close to the next inline-element */
+    /* add some space to fix this */
     margin-right: 0.1em;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 /* grid */
@@ -81,11 +94,15 @@ footer {
     grid-area: footer;
 }
 
-.hidden { /* hide element, used to add required h1/h2s to section/articles to pass validation */
+/* hide an element from view */
+/* use case:
+    sections require a child heading in order to pass validation without warning
+    we use hidden on these section headings to give context to screen readers, scrapers & users with css disabled
+*/
+.hidden {
     grid-column: 999; /* will never interrupt grid flow */
-    position: absolute;
-    top: 0;
-    visibility: hidden;
+    display: none; /* hide in older browsers */
+    visibility: hidden; /* hide in modern browsers */
 }
 
 /* jumbotron styling */
@@ -129,7 +146,12 @@ footer {
     margin: 1em 0.5em;
 }
 
-/* fade list */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* fading list */
 .fade-list li
 {
     opacity: 0;

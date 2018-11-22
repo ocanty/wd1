@@ -135,7 +135,7 @@ figure img {
         background-size:   cover;
         transform: translateY(var(--p1-yscale));
         
-        filter: saturate(calc(var(--percent-scrolled) * 5));
+        filter: saturate(calc(var(--percent-scrolled) * 3));
 
         /* to fix blurry image, since it's lores */
         /* credit: https://stackoverflow.com/a/51863875 */
@@ -146,6 +146,21 @@ figure img {
         -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */
         overflow: hidden;
     }
+
+    /* https://stackoverflow.com/a/45639929 */
+    /* firefox badly repaints transforms, disable parallax */
+    @supports (-moz-appearance:none){
+        main::before {
+            transform: none;
+        }
+
+        main {
+            overflow: hidden;
+            background: #111;
+        }
+
+    }
+
     #timeline-head {
         text-align: left;
         padding: 4em 2em 1em 2em;
@@ -191,3 +206,4 @@ figure img {
 
 
 }
+

@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" href="css/index.css"/>
         <link rel="icon" href="favicon.ico"/>
+        <script src="js/onload.js"></script>
     </head>
     <body>
         <!--[if IE]>
@@ -35,12 +36,12 @@
                 <section>
                     <h2>Europe's Densest Subway</h2>
                     <p>
-                        With a system length of <strong>214km</strong>, <strong>302 stations</strong> and
-                        an <strong>average distance of 600m between stations</strong>, the Paris Metro takes
+                        With a system length of <b>214km</b>, <b>302 stations</b> and
+                        an <b>average distance of 600m between stations</b>, the Paris Metro takes
                         the crown in being one of the densest subway systems in the world.
                     </p>
                     <p>
-                        Such a design presents interesting challenges.
+                        <strong>Such a design presents interesting challenges.</strong>
                     </p>
                 </section>
                 <section>
@@ -52,12 +53,17 @@
                         <li>20 hours a day</li>
                     </ul>
                 </section>
-                <img src="img/mp.svg" alt="The MP77, a rubber-tyred metro train"/>
+
+                <figure>
+                    <img src="img/mp.svg" alt="The MP77, a rubber-tyred metro train, with a light turquoise and white color scheme"/>
+                    <figcaption class="hidden">The MP77</figcaption>
+                </figure>
             </section>
-            <section class="jumbotron" id="best">
+            <section class="jumbotron" id="map">
                 <h2 class="hidden">Map View</h2>
                 <figure>
-                    <img src="img/map2.png" alt="Map of the Metro System"/>
+                    <img src="img/map2.png" alt="A map of the metro system, showing the city centre of Paris"/>
+                    <figcaption>Paris City Centre</figcaption>
                 </figure>
             </section>
 
@@ -69,10 +75,11 @@
                 <section>
                     <h2>Driverless Trains</h2>
                     <p>
-                        Automated trains can be found on lines <strong>1</strong> &amp; <strong>14</strong>. 
+                        Automated trains can be found on <i>lines 1 &amp; 14</i>. 
                         Trains can be deployed at will from a command center to cope with peak demand.
-                        The distance between consecutive trains can become smaller and smaller as
-                        coordination is not required between drivers
+                        On a driver-based system the <b>distance between trains</b> must <em>greater</em>
+                        for <b>safety</b>. With automation, the gap is <em>much smaller</em> as
+                        trains communicate on the fly.
                     </p>
                 </section>
             </section>
@@ -99,6 +106,7 @@
             <section id="logo-darken">
                 <h2>&#x24C2;</h2>
                 <small>&copy; MIT License unless otherwise acknowledged</small>
+                <a href="https://github.com/ocanty/wd1">source code</a>
             </section>
             <section>
                 <h2>More Info</h2>
