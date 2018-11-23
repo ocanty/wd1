@@ -32,7 +32,7 @@ main {
     text-shadow: 2px 2px 0 black;
 
     position: relative;
-    z-index: 2;
+
 }
 
 /* vertical blue line */
@@ -49,7 +49,7 @@ main {
 
     border-radius: 1.5em;
 
-    z-index: 1;
+    z-index: 1; /* keep blue line behind content */
 
     box-shadow: 0 0 0.5em black;
 }
@@ -70,10 +70,9 @@ main {
     text-shadow: 0 0 0.5em var(--transparent);
 }
 
-/* draw all element above vertical line */
 #timeline ul li {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* keep elements above the blue line */
 }
 
 figure {
@@ -125,7 +124,7 @@ figure img {
         width: 100%;
         height: 110vh;
         
-        z-index: -1;
+        z-index: -1; /* keep parallax behind the footer */
         background-image: url("../img/historybg.jpg");
         background-color: #111;
         background-repeat: repeat;

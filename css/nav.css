@@ -1,10 +1,6 @@
 
 header {
     padding: 1em 0em;
-
-    /* make our header sit above everything */
-    position: fixed;
-    z-index: 99999
 }
 
 header span {

@@ -42,7 +42,7 @@ li h2 {
     margin-bottom: -2em;
 
     position: relative;
-    z-index: 10; /* draw above images */
+    z-index: 2; /* draw above images */
 
 
     font-weight: 300;
@@ -55,7 +55,7 @@ figure img {
     padding: 0;
 
     position: relative;
-    z-index: 9; /* draw below h1 above */
+    z-index: 1; /* draw below h1 above */
     transition: 1s;
 }
 
@@ -93,7 +93,7 @@ figure img {
         transform: scale(1.05);
         
         position: relative;
-        z-index: 12; /* display over all the other gallery images */
+        z-index: 3; /* display over all the other gallery images */
     }
     
 }

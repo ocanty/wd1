@@ -12,8 +12,6 @@ footer {
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto;
 
-    position: relative;
-    z-index: 99;
 }
 
 footer h2 {

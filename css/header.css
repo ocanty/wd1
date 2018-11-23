@@ -4,12 +4,12 @@ header {
     box-shadow: 0 0 0.5em var(--transparent);
     width: 100vw;
 
-    /* header is floated on mobile */
+    /* header is fixed to scroll on mobile */
     position: fixed;
     top: 0;
     left: 0;
 
-    z-index: 100; /* draw above content */
+    z-index: 100; /* draw above all content */
 }
 
 header h1 {
@@ -18,7 +18,7 @@ header h1 {
 
     text-shadow: 2px 2px #22222266;
 
-    position: relative;
+    position: relative; 
     z-index: inherit;
     line-height: 2em;
 }

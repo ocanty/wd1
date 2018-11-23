@@ -27,16 +27,16 @@ let lerp = (a,b,r) => {
 let lastScroll = -1
 
 let parallax = () => { 
-    // only cause a DOM update if we have to 
+    // only cause a DOM update if we have to, if they have changed their scroll position
     if(lastScroll != document.documentElement.scrollTop)
     {
         lastScroll = document.documentElement.scrollTop
 
         var prop = document.documentElement.style.getPropertyValue("--p1-yscale")
-        var cur = parseInt(prop.slice(0,prop.length-2))
+        var cur = parseInt(prop.slice(0,prop.length-2)) // remove 'px' from end of str
         var target = document.documentElement.scrollTop*0.97
         
-        var lerped = target//lerp(cur,target, 1) // smooth cur to target, prevent jitter
+        var lerped = target // lerp(cur,target, 0.05) // smooth cur to target, prevent jitter
     
         document.documentElement.style.setProperty(
             '--p1-yscale',
@@ -52,4 +52,5 @@ let parallax = () => {
     window.requestAnimationFrame(parallax)
 }
 
+// update before every paint
 window.requestAnimationFrame(parallax)

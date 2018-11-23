@@ -125,7 +125,7 @@
         text-shadow: 2px 2px 2px black;
         position: relative;
         color: white;
-        z-index: 10;
+        z-index: 2; /* display above the train anim */
     }
 
 
@@ -138,7 +138,7 @@
     #density img {
         display: block;
         position: relative;
-        z-index: 5; /* display train behind headings and list */
+        z-index: 1; /* display train behind headings and list */
         height: 6em;
         margin-bottom: -12em;
         top: -2em;
