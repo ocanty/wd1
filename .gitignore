@@ -2,5 +2,7 @@
 *.png
 *.jpeg
 *.jpg
-*.svg
 *.JPG
+*.svg
+*.jpg
+*.gif

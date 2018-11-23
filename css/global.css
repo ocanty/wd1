@@ -46,21 +46,26 @@ body, h1,h2,h3,ul,figcaption,img,figure {
     padding: 0;
     font-family: sans-serif;
     font-weight: 300;
+    color: white;
+    text-shadow: 0 0 0.5em #222;
 }
 
 h1,h2,h3 {
     font-family: 'Oswald', sans-serif;
+    color: white;
 }
 
 p, li, span, caption, figcaption, tr, th, td {
     font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 0 0 0.5em #222;
     font-weight: 300;
     font-size: 1.1em;
+    color: white;
 }
 
 strong, b {
     font-weight: 400;
-    font-size: 1.15em;
+    font-size: 1.05em;
 }
 
 i, em {
@@ -95,9 +100,14 @@ footer {
 }
 
 /* hide an element from view */
-/* use case:
+/* 
+    rationale/use case:
     sections require a child heading in order to pass validation without warning
-    we use hidden on these section headings to give context to screen readers, scrapers & users with css disabled
+
+    we use hidden on these section headings as-well
+    to give context to screen readers, scrapers, and to
+    keep the page flowing well for users with 
+    css disabled/terminal based web browsers like lynx
 */
 .hidden {
     grid-column: 999; /* will never interrupt grid flow */

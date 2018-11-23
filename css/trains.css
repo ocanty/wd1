@@ -3,16 +3,97 @@
 @import url('nav.css');
 @import url('footer.css');
 
+main {
+    background-color: var(--grey);
+}
+
 #trains-head {
     text-align: center;
 
     padding: 2em 0.5em;
     padding-bottom: 0.25em;
+    background-image: 
+    linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), 
+    linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.50)),
+    url("../img/trains.jpg");
+
+    background-size: cover;
+    background-position: center 26%;
+}
+
+#list ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#list li {
+    padding: 0;
+}
+
+figure {
+    width:100%;
+}
+
+li h2 {
+    height: 2em;
+    line-height: 2em; /* vertical align */
+    margin-bottom: -2em;
+
+    position: relative;
+    z-index: 10; /* draw above images */
+
+
+    font-weight: 300;
+    font-size: 4em;
+}
+
+figure img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    position: relative;
+    z-index: 9; /* draw below h1 above */
+    transition: 1s;
 }
 
 @media only screen and (min-width: 768px) {
+    #list ul {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    figure {
+        width: 100%;
+        
+        overflow: hidden;
+    }
+
     #trains-head {
-        padding: 6em 2em;
+        padding: 4em 2em 2.5em 2em;
         text-align: left;
     }
+
+    #list ul {
+        grid-template-columns: 33.4% 33.4% 33.4%;
+    }
+
+    #list li {
+        filter: brightness(30%);
+        transition: filter 1s, transform 0.5s;
+    }
+    
+    #list li:hover {
+        filter: none;
+    }
+
+    #list li:hover {
+        transform: scale(1.05);
+        
+        position: relative;
+        z-index: 12; /* display over all the other gallery images */
+    }
+    
 }

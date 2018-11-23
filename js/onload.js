@@ -24,7 +24,7 @@ let lerp = (a,b,r) => {
     return a + r * (b - a)
 }
 
-let lastScroll = 0
+let lastScroll = -1
 
 let parallax = () => { 
     // only cause a DOM update if we have to 

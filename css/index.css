@@ -10,7 +10,7 @@
     background-image: 
         linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), 
         linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.50)),
-        url("../img/jumbotron.jpg");
+        url("../img/jumbotron_compressed.jpg");
     background-color: white;
     background-blend-mode: darken,  overlay, normal;
     background-position: center top;
@@ -20,28 +20,42 @@
 
 #density ul {
     background-color: white;
-    color: black;
-    text-shadow: none;
 
     padding: 1em 0;
     font-size: 0.5em;
     box-shadow: 0 0 2em var(--transparent);
-
+    
     text-align: center;
     font-size: 0.8em;
 }
 
+#density li {
+    color: black;
+    text-shadow: none;
+}
+
+/* disable train svg on mobile */
 #density img {
     display: none;
 }
-
 
 #driverless-video {
     width: 100%;
 }
 
 #map {
-    height: 8em;
+    width: 100vw;
+    max-height: 8em;
+    overflow: hidden;
+}
+
+#map img {
+    height: 100%;
+    width: 100vw;
+}
+
+#map figcaption {
+    display: none;
 }
 
 #beaut {
@@ -94,10 +108,11 @@
         background: none;
         box-shadow: none;
 
-        color: white;
+
         font-size: 0.60em;
         
         height: 100%;
+        color: white;
 
         display: flex;
         align-items: center;
@@ -105,10 +120,11 @@
         flex-direction: column;
     }
 
+
     #density p, #density h1, #density li {
         text-shadow: 2px 2px 2px black;
-        color: white;
         position: relative;
+        color: white;
         z-index: 10;
     }
 
@@ -118,14 +134,11 @@
         to { left: 250em; }
     }
 
-    #density figcaption {
-        visibility: hidden;
-    }
-
+    /* train svg animation */
     #density img {
         display: block;
         position: relative;
-        z-index: 5;
+        z-index: 5; /* display train behind headings and list */
         height: 6em;
         margin-bottom: -12em;
         top: -2em;
@@ -138,7 +151,6 @@
         filter: grayscale(100%) contrast(50%) brightness(10%);
 
         opacity: 0.7;
-    
     }
 
     #driverless {
@@ -154,31 +166,11 @@
         min-width: 100%;
 
         object-fit: cover;
-
-        position: relative;
-        z-index: 2;
-        
         clip-path: ellipse(75% 125% at 25% 50%);
     }
 
     #driverless section {
         text-align: right;
         padding: 2em;
-        position: relative;
-        
-        z-index: 3;
-    }
-
-    #best {
-        grid-template-columns: 100%;
-        max-height: 4em;
-        box-shadow: inset 0 0 var(--transparent);
-        padding: 0;
-    }
-
-    #best img {
-        object-fit: cover;
-        width: 100%;
-        min-width: 100%;
     }
 }

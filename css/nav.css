@@ -2,8 +2,9 @@
 header {
     padding: 1em 0em;
 
+    /* make our header sit above everything */
     position: fixed;
-    z-index: 99999;
+    z-index: 99999
 }
 
 header span {
@@ -42,8 +43,12 @@ header[extended] h1 span::before {
     margin-left: 0.1em; /* font irregularity */
 }
 
-header[extended] h1 span {
-    color: rgba(0,0,0,0); /* workaround: opacity: 0 will hide the ::before element */
+header[extended] h1 span  {
+    /* 
+        workaround: opacity: 0; will hide the ::before element, we need it visible
+        so lets just make the text invisible instead
+    */
+    color: #00000000;
     text-shadow: none;
 }
 
@@ -65,7 +70,7 @@ header nav ul {
 
 header nav li {
     width: 100vw;
-    color: white;
+
     padding: 2vh 0;
     margin: 0;
 
@@ -81,11 +86,11 @@ header nav a {
 
 
 header nav li:nth-child(even) {
-    background-color: rgba(0,0,0,0.25);
+    background-color: var(--transparent);
 }
 
 header nav[extended] li:hover {
-    background-color: #222;
+    background-color: var(--grey);
 } 
 
 @media only screen and (min-width: 768px) {
@@ -137,6 +142,13 @@ header nav[extended] li:hover {
         background: none;
         text-align: center;
         font-size: 1.5em;
+
+        filter: brightness(90%);
+        transition: filter 1s;
+    }
+
+    header nav li:hover {
+        filter: none;
     }
 
     header nav li:nth-child(even) {
@@ -159,13 +171,13 @@ header nav[extended] li:hover {
 
         transition: width 0.5s;
         height: 0.05em;
-        width: 40%;
+        width: 35%;
 
         pointer-events: none; /* stop them clicking on the line */
     }
     /* show underline on hover */
     header nav li:hover::after
     {
-        width: 65%;
+        width: 60%;
     }
 }
